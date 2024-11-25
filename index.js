@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 
 app.get('/', (_req, res) => {
-  res.send('Hola amigos desde mi API');
+  res.send('Hola amigos desde mi API 2');
 });
 
 module.exports = app;
