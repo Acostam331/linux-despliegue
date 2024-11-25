@@ -1,0 +1,25 @@
+# docker-compose.yml
+version: '3.8'
+services:
+  hola:
+    restart: unless-stopped
+    image: my-app-image
+    build: .
+    networks:
+      - node_network
+
+  proxy:
+    restart: unless-stopped
+    build:
+      context: ./nginx
+      dockerfile: Dockerfile
+    ports:
+      - 80:80
+    depends_on:
+      - hola
+    networks:
+      - node_network
+
+networks:
+  node_network:
+ 
